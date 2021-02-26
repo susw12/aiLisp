@@ -17,12 +17,15 @@
 )
 
 (defun len (l1)
+    (write (eq (car (cdr l1)) nil))
+    (terpri)
+    ;(write (l1))
     (cond 
-        (((eq (car (cdr l1)) nil)) (1))
-        (t ())
+        ((eq (car (cdr l1)) nil) (1))
+        (t (+ 1 (len (cdr l1))))
     )
 )
-
+(write (len '(182 384 34)))
 
 (defun dottep (v1)
     (cond 
