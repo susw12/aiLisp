@@ -44,8 +44,6 @@
     )
 )
 
-(write (squash-list '((x y) x ((((y z)))))) )
-
 (defun our-member-p (v1 l1)
     (cond
         ((> (count-x-in-y v1 l1) 0) v1)
