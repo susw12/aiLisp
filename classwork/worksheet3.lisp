@@ -19,4 +19,32 @@
         ((null to-do) new-list))) ; It checks to see if to-do is empty. If it is, it breaks. Otherwise, it continues the loop.
 
 ; 2)
+(defun mystery-fun-4-update (x)
+    (let ((result 1))
+        (dotimes (counter (- x 1) result)
+            (setf result (* (- x counter) result)))))
 
+; 3)
+(defun mystery-fun-5-update (x)
+    (let ((result 0))
+        (dolist (next x result)
+            (setf result (1+ result)))))
+
+; 4)
+
+; 5) a)
+(loop for x in '(do re me fa sol la te do)
+    do (print x))
+
+; 5) b)
+(loop for x from 0 to 3
+    do (print x)
+)
+
+;6
+
+;7
+; (write (mystery-fun-5 '(1 2 3 4 5 (6 6 43) 4)))
+; (terpri)
+; (write (mystery-fun-5-update '(1 2 3 4 5 (6 6 43) 4)))
+; (terpri)
