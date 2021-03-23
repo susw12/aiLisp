@@ -16,7 +16,7 @@
 (defun mystery-fun-6 (x) 
     (do ((to-do x (cdr to-do)) ; Defines to-do to point to x. Each iteration, to-do loses its first element
         (new-list nil (cons (car to-do) new-list))) ; Defines new-list to nil. Each iteration, new-list adds the first element of to-do to it, effectively appending it.
-        ((null to-do) new-list))) ; It checks to see if to-do is empty. If it is, it breaks. Otherwise, it continues the loop.
+        ((null to-do) new-list))) ; It checks to see if to-do is empty. If it is, it breaks. Otherwise, it continues the loop. If it breaks, then the list returns backwards.
 
 ; 2)
 (defun mystery-fun-4-update (x)
@@ -31,20 +31,35 @@
             (setf result (1+ result)))))
 
 ; 4)
+(defun mystery-fun-6-update (x)
+    (let ((result nil))
+        (dolist (next x result)
+            (setf results (cons (car x) results)))))
 
 ; 5) a)
-(loop for x in '(do re me fa sol la te do)
-    do (print x))
+;(loop for x in '(do re me fa sol la te do)
+;    do (print x))
 
 ; 5) b)
-(loop for x from 0 to 3
-    do (print x)
-)
+;(loop for x from 0 to 3
+;    do (print x)
+;)
 
 ;6
+(defun question-6 (input)
+    (setq f nil) ; Sets f to nil
+    (dolist (w input) 
+        (cond ((numberp w))
+        (t (setq f (cons w f)))))
+f)
+
+;(question-6 '(numbers -945 34 are my -45 66 life))
+;(write f)
+;(terpri)
 
 ;7
-; (write (mystery-fun-5 '(1 2 3 4 5 (6 6 43) 4)))
-; (terpri)
-; (write (mystery-fun-5-update '(1 2 3 4 5 (6 6 43) 4)))
-; (terpri)
+
+(write (mystery-fun-6 '(1 2 3 4 5 (6 6 43) 4)))
+(terpri)
+(write (mystery-fun-6-update '(1 2 3 4 5 (6 6 43) 4)))
+(terpri)
