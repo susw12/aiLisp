@@ -1,3 +1,7 @@
+; Sujay Swain
+; Worksheet 3
+; Note: The answers for the tracing and explanation are here as comments.
+
 ; 1) a)
 (defun mystery-fun-4 (x) 
     (do ((i (1- x) (1- i)) ; Sets i to a value one less than x, the given value. Each iteration, i is reduced by one.
@@ -47,11 +51,20 @@
 
 ;6
 (defun question-6 (input)
-    (setq f nil) ; Sets f to nil
-    (dolist (w input) 
-        (cond ((numberp w))
-        (t (setq f (cons w f)))))
-f)
+    (setq f nil) ; Sets f to a nil list
+    (dolist (w input) ; It takes in the input list provided by the user, along with a variable "w" which represents the current element it is reading
+        (cond ((numberp w)) ; It checks to see if "w" is a number. If it is it does nothing, (essentially this is checking to see if the element is not a number).
+        (t (setq f (cons w f))))) ; If "w" was not a number, i.e. the previous statement failed, it appends that element to the list f, which we defined earlier.
+f) ; This does nothing? Looks like a typo
+
+(question-6 '(numbers -945 34 are my -45 66 life)) ; Output: (ife are my numbers)
+
 
 ;7
+(defun question-6-update (input)
+    (setf f nil)
+    (loop for x in input
+        do (cond ((numberp x))
+            (t (setq f (cons x f))))))
 
+(question-6-update '(numbers -945 34 are my -45 66 life))
