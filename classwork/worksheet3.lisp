@@ -34,16 +34,16 @@
 (defun mystery-fun-6-update (x)
     (let ((result nil))
         (dolist (next x result)
-            (setf results (cons (car x) results)))))
+            (setf result (cons next result)))))
 
 ; 5) a)
-;(loop for x in '(do re me fa sol la te do)
-;    do (print x))
+(loop for x in '(do re me fa sol la te do)
+    do (print x))
 
 ; 5) b)
-;(loop for x from 0 to 3
-;    do (print x)
-;)
+(loop for x from 0 to 3
+    do (print x)
+)
 
 ;6
 (defun question-6 (input)
@@ -53,13 +53,5 @@
         (t (setq f (cons w f)))))
 f)
 
-;(question-6 '(numbers -945 34 are my -45 66 life))
-;(write f)
-;(terpri)
-
 ;7
 
-(write (mystery-fun-6 '(1 2 3 4 5 (6 6 43) 4)))
-(terpri)
-(write (mystery-fun-6-update '(1 2 3 4 5 (6 6 43) 4)))
-(terpri)
