@@ -57,7 +57,7 @@
         (t (setq f (cons w f))))) ; If "w" was not a number, i.e. the previous statement failed, it appends that element to the list f, which we defined earlier.
 f) ; This does nothing? Looks like a typo
 
-(question-6 '(numbers -945 34 are my -45 66 life)) ; Output: (ife are my numbers)
+(question-6 '(numbers -945 34 are my -45 66 life)) ; Output: (life are my numbers)
 
 
 ;7
