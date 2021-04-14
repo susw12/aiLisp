@@ -31,5 +31,29 @@
     val
 )
 
-; (write (imember-p 'x '(x y z)))
 
+(defun combinations (x y z)
+    (setf total nil)
+    (dolist (l x)
+        (dolist (m y)
+            (dolist (n z)
+                (setf total (append total (list (cons l (cons m (cons n nil))))))
+            )
+        )
+    )
+    total
+)
+
+(defun remove-redundancies (x)
+    (setf simply (list (car x)))
+    (dolist (m x)
+        (setf test nil)
+        (dolist (n simply)
+            (cond 
+                ((eq test nil) (setf test (equalp m n)))
+                ((eq test t)))
+        )
+        (cond ((eq test nil) (setf simply (append simply (list m)))))
+    )
+    simply
+)
